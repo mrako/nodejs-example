@@ -1,3 +1,5 @@
+'use strict';
+
 var morgan = require('morgan');
 
 var server = require('./app');
@@ -14,13 +16,13 @@ if (cluster.isMaster) {
     cluster.fork();
   }
 
-  cluster.on('exit', function (worker, code, signal) {
+  cluster.on('exit', function (worker) {
     console.log('Worker ' + worker.process.pid + ' died');
-    console.log('Spawining new worker...');
+    console.log('Spawining new worker.');
     cluster.fork();
   });
 } else {
   server.listen(port);
 }
 
-console.log("App listening on port " + port);
+console.log('App listening on port ' + port);

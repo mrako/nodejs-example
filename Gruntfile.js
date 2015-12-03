@@ -44,5 +44,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('serve', ['express:dev', 'watch']);
   grunt.registerTask('test', ['simplemocha']);
-  grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('default', ['jshint', 'test']);
 };
