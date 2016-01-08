@@ -7,7 +7,7 @@ var server = require('./app');
 var cluster = require('cluster');
 
 var port = process.env.PORT || 8080;
-var workers = require('os').cpus().length;
+var workers = require('os').cpus().length + 1;
 
 server.use(morgan('dev', {immediate: true}));
 
